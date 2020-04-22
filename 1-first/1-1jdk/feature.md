@@ -130,7 +130,13 @@ peek:获取一个元素,可以改变流内部的元素,对流本身没有影响,
 对于数值类型有max,sum,averaging,min等特殊操作.  
 **注意toConcurrentMap**等操作,返回线程安全类型的Map.
 
-## 5、Date API
+## 5、parallelStream(并行流处理)
+适合线程安全的情况下数据梳理,基于Fork/join框架实现.
+**常用方法参考Stram**  
+Fork/Join概述:fork表示任务拆分,join表示结果合并;使用多线程取处理任务,有效利用CPU资源.
+
+
+## 6、Date API
 java8的DateAPI优势:  
 (1)支持时区;
 (2)自带格式化方法,可读性强;
@@ -142,5 +148,7 @@ java8的DateAPI优势:
     LocalDateTime:日期时间
     ZonedDateTime:包含时区的日期时间
 **[Date api地址](http://www.matools.com/api/java8)**  
+
+
 
 # jdk1.9 新特性

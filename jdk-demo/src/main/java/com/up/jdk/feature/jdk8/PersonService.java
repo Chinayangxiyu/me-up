@@ -1,12 +1,9 @@
-package com.up.jdk.feature.demo.service;
+package com.up.jdk.feature.jdk8;
 
-import com.up.jdk.feature.demo.base.Person;
-import com.up.jdk.feature.demo.base.Student;
+import com.up.jdk.feature.base.Person;
 
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.util.concurrent.ConcurrentMap;
 import java.util.stream.Collectors;
 
@@ -58,7 +55,3 @@ public class PersonService {
     }
 }
 
-@FunctionalInterface
-interface FilterProcessor<T>{
-    boolean process(T t);
-}

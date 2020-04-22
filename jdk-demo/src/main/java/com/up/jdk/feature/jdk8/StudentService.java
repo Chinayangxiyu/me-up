@@ -1,7 +1,7 @@
-package com.up.jdk.feature.demo.service;
+package com.up.jdk.feature.jdk8;
 
-import com.up.jdk.feature.demo.base.Person;
-import com.up.jdk.feature.demo.base.Student;
+import com.up.jdk.feature.base.Person;
+import com.up.jdk.feature.base.Student;
 
 import java.util.ArrayList;
 import java.util.Arrays;

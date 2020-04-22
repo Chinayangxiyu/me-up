@@ -1,4 +1,4 @@
-package com.up.jdk.feature.demo.service;
+package com.up.jdk.feature.jdk8;
 
 /**
  * @author yxy

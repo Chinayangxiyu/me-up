@@ -1,4 +1,4 @@
-package com.up.jdk.feature.demo.base;
+package com.up.jdk.feature.base;
 
 import java.util.List;
 
