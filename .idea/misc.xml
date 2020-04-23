@@ -8,6 +8,7 @@
       <list>
         <option value="$PROJECT_DIR$/feature-demo/pom.xml" />
         <option value="$PROJECT_DIR$/jdk-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/arithmetic-study/pom.xml" />
       </list>
     </option>
   </component>
