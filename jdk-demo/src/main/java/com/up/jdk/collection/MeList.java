@@ -9,10 +9,7 @@ import java.nio.channels.SocketChannel;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author yxy
@@ -28,6 +25,21 @@ public class MeList {
 
         map.get("star");
 
+        HashSet set = new HashSet();
+
     }
 
+    private void testVector(){
+        Vector<String> vector = new Vector();
+
+        vector.add(null);
+
+
+        Stack stack = new Stack();
+        stack.add("aa");
+
+        stack.push("bb");
+        stack.pop();
+
+    }
 }
