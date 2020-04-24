@@ -159,7 +159,7 @@ https://www.jianshu.com/p/8f4f58b4b8ab
 #总结
 &emsp;&emsp;   数组、链表、红黑树、键值对；java容器是基于这四个基础结构上进行组装实现了各种结构，对于使用数组的容器均有扩容的概念。  
             然后根据需求加上相应的配件实现特殊的功能，配件如下；  
-&emsp;&emsp;   (1)synchronized：保证线程安全；Vector,HashTable；
-&emsp;&emsp;   (2)Comparator：排序顺序；PriorityQueue,TreeMap,TreeSet；
-&emsp;&emsp;   (3)equals、hashCode、地址值：保证唯一。
-&emsp;&emsp;   (4)WeakReference：若引用。
+&emsp;&emsp;   (1)synchronized：保证线程安全；Vector,HashTable；  
+&emsp;&emsp;   (2)Comparator：排序顺序；PriorityQueue,TreeMap,TreeSet；  
+&emsp;&emsp;   (3)equals、hashCode、地址值：保证唯一。  
+&emsp;&emsp;   (4)WeakReference：若引用。  
