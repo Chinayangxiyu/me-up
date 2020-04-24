@@ -4,8 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/arithmetic-study/arithmetic-study.iml" filepath="$PROJECT_DIR$/arithmetic-study/arithmetic-study.iml" />
       <module fileurl="file://$PROJECT_DIR$/jdk-demo/jdk-demo.iml" filepath="$PROJECT_DIR$/jdk-demo/jdk-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/feature-demo/jdk-demo.iml" filepath="$PROJECT_DIR$/feature-demo/jdk-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/me-jdk.iml" filepath="$PROJECT_DIR$/.idea/me-jdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/me-up.iml" filepath="$PROJECT_DIR$/.idea/me-up.iml" />
     </modules>
   </component>
 </project>
