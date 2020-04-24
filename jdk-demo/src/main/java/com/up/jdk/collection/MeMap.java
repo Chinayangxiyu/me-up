@@ -10,6 +10,25 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class MeMap {
     public static void main(String[] args) {
+        String s1 = new String("a");
+        int sHash = s1.hashCode();
+        System.out.println(sHash);
+
+        int systemHash = System.identityHashCode(s1);
+        System.out.println(systemHash);
+
+        System.out.println("--------------------");
+
+        Cup c1 = new Cup("红色", 10);
+        int C1Hash = c1.hashCode();
+        System.out.println(C1Hash);
+
+        int systemC1Hash = System.identityHashCode(c1);
+        System.out.println(systemC1Hash);
+
+    }
+
+    private void test1(){
         LinkedHashMap<Cup, String> linkedHashMap = new LinkedHashMap<Cup, String>(10,0.75f, true);
         linkedHashMap.put(new Cup("红色", 10), "1");
         linkedHashMap.put(new Cup("白色", 10), "2");
@@ -38,9 +57,9 @@ public class MeMap {
             Map.Entry<Cup, String> entry = iterator.next();
             System.out.println(entry.getValue() + entry.getKey().getColour());
         }
-    }
 
-    private void testTreeMap(){
+    }
+  private void testTreeMap(){
         TreeMap treeMap = new TreeMap();
         treeMap.put("as",12);
 
@@ -114,9 +133,5 @@ class Cup{
                 Objects.equals(colour, cup.colour);
     }
 
-    @Override
-    public int hashCode() {
 
-        return higth;
-    }
 }

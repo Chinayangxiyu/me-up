@@ -21,8 +21,15 @@
 
 
 # Map
-**hashCode()方法保证相同的输入得到相同的输出，不保证不同的输入有不同的输出**  
-**equals()是判断两个对象是否相等**
+**&emsp;&emsp;   hashCode()方法保证相同的输入得到相同的输出，不保证不同的输入有不同的输出**  
+**&emsp;&emsp;   equals()是判断两个对象是否相等**  
+**&emsp;&emsp;  【补充】：HashMap的Entry元素，在产生哈希中途后，如果阈值超过8会转为红黑树，但是我们知道树的存储需要和节点的值**   
+**进行大小比较的；本来就已经产生哈希冲突了，那么怎么继续获取一个值来构建R-B Tree呢；在HashMap中是调用了System.identityHashCode**  
+**获取key的默认哈希值，根据这个默认哈希值构建B-R Tree。System.identityHashCode()是对象在未重写hashCode方法的时候系统自带的**  
+**hashCode计算方法。**    
+**&emsp;&emsp;  【小概率】所以在使用Map的时候如果不重写hashCode（）方法，使用Map的时候两次计算调用的都是System.identityHashCode()**  
+**方法，如果产生哈希冲突；那么构建红黑树时，得出的哈希值是一致的，最后导致整个树的所有值都一样，查一个key可能会遍历完整个树。**  
+
 ##1、HashMap
 
 &emsp;&emsp;    底层接口是数组 + (链表 || 红黑树);元素存链表还是红黑树由哈希冲突的长度实现，默认值是8；查询的适合根据hash值、key对象地址、
@@ -103,6 +110,7 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
     }
 
 ```
+
 
 ## 2、LinkedHashMap
 https://www.jianshu.com/p/8f4f58b4b8ab
