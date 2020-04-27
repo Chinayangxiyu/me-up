@@ -5,10 +5,13 @@
     
 ## 2、函数式编程&lambda表达式
         函数式编程是指，函数（方法）可以作为参数进行行传递。
-        lambda表达式是特定的语法的匿名函数，是便于进行函数式编程的语法糖；lambda中的变量应该是final类型。
+        lambda表达式是特定的语法的匿名函数，是便于进行函数式编程的语法糖；lambda中的变量应该是final类型。  
+        lambda使用 className::methodName是一种简单写法，k ->k.method().methpd1()更具有拓展性。如下例3中，toMap中获取Entry.value的属性  
 lambda示例：
 ```
-     list.stream().forEach(p -> System.out.println(p.getName()));
+     （1）list.stream().forEach(p -> System.out.println(p.getName()));  
+     （2）Map<String, PropertyDescriptor> propertyMap = Arrays.stream(propertyDescriptors).collect(Collectors.toMap(PropertyDescriptor::getName, (v -> v)));  
+     （3）Map<String, Method> methodHashMap = propertyMap.entrySet().stream().collect(Collectors.toMap( k-> k.getKey(), k -> k.getValue().getReadMethod()));  
 ```
     
 ## 3、函数式接口
@@ -126,6 +129,7 @@ peek:获取一个元素,可以改变流内部的元素,对流本身没有影响,
 分组:Collectors.groupingby
 转List:Collectors.toList
 转Set:Collectors.toSet
+转Map:Collectors.toMap
 对于String类型还有Collectors.join
 对于数值类型有max,sum,averaging,min等特殊操作.  
 **注意toConcurrentMap**等操作,返回线程安全类型的Map.

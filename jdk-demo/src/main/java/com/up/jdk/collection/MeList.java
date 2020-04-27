@@ -19,13 +19,18 @@ import java.util.*;
 public class MeList {
 
     public static void main(String[] args) {
-        HashMap<String, String> map = new HashMap<>();
+        ArrayList<String> list = new ArrayList();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        Iterator<String> iterator = list.iterator();
 
-        map.put("str", "value");
+        while(iterator.hasNext()){
+            iterator.next();
+            iterator.remove();
+        }
 
-        map.get("star");
 
-        HashSet set = new HashSet();
 
     }
 

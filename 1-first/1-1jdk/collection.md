@@ -45,7 +45,10 @@
             链表的顺序会颠倒一次，因为HashMap不是线程安全的，当产生并发的时候可能会出现死链。1.8优化后，使用尾节点插入，不会颠倒链表顺序，不会
             产生死链。  
 &emsp;&emsp;    1.7死链描述：链表[A,B,C,D]，复制的时候采用头节点插入，先复制A节点，然后设置A的pre节点，此时线程并发，线程1获取到A的next是B，将B
-            设置为A的pre节点；此时线程2获取节点B的next 已经指向了节点A；最后设置B节点的pre时会设置为A。最终，形成死链。
+            设置为A的pre节点；此时线程2获取节点B的next 已经指向了节点A；最后设置B节点的pre时会设置为A。最终，形成死链。  
+&emsp;&emsp;    1.8使用红黑树+链表替换纯链表的优势：如果hashCode方法分布均匀，产生哈希冲突的概率极低，文档中给出的数据是(0.00000006)；当我们自己  
+            实现的hashCode()方法分布不均，或者hash算法被人破解攻击，产生了大量哈希冲突时；使用存链表维护在链表长度过长时性能降低，使用红黑树可以  
+            提升效率。       
     
 HashMap put方法源码解析
 ``` 
@@ -164,10 +167,16 @@ https://www.jianshu.com/p/8f4f58b4b8ab
         
         
 
-#总结
+# 总结一
 &emsp;&emsp;   数组、链表、红黑树、键值对；java容器是基于这四个基础结构上进行组装实现了各种结构，对于使用数组的容器均有扩容的概念。  
             然后根据需求加上相应的配件实现特殊的功能，配件如下；  
 &emsp;&emsp;   (1)synchronized：保证线程安全；Vector,HashTable；  
 &emsp;&emsp;   (2)Comparator：排序顺序；PriorityQueue,TreeMap,TreeSet；  
 &emsp;&emsp;   (3)equals、hashCode、地址值：保证唯一。  
 &emsp;&emsp;   (4)WeakReference：若引用。  
+
+# 总结二
+&emsp;&emsp;   iterator：迭代器是Collection类型集合（非Map，基于链表、数组的集合）设计的时候默认获取的一个迭代器，用于遍历元素；  
+            但是Iterator只是提供了相关规范，核心方法就是hasNext(),Next()和remove；而具体的实现由具体的实现类根据自己的需求去实现；
+            并且remove()方法应该和next()方法是绑定在一起，既获取最后一次获取的元素。
+

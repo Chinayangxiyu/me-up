@@ -1,7 +1,6 @@
 package com.up.jdk.io;
 
-import java.io.ByteArrayInputStream;
-import java.io.FileInputStream;
+import java.io.*;
 
 /**
  * @author yxy
@@ -11,5 +10,13 @@ import java.io.FileInputStream;
 public class meIo {
 
     public static void main(String[] args) {
+
+        PipedInputStream pis = new PipedInputStream();
+
+//
+//        ByteArrayOutputStream reader = new ByteArrayOutputStream(pis);
+//        reader.toByteArray();
+//
+//        ByteArrayInputStream
     }
 }

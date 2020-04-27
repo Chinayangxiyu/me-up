@@ -26,9 +26,11 @@ public class MeMap {
         int systemC1Hash = System.identityHashCode(c1);
         System.out.println(systemC1Hash);
 
+        test1();
+
     }
 
-    private void test1(){
+    public static void test1(){
         LinkedHashMap<Cup, String> linkedHashMap = new LinkedHashMap<Cup, String>(10,0.75f, true);
         linkedHashMap.put(new Cup("红色", 10), "1");
         linkedHashMap.put(new Cup("白色", 10), "2");
@@ -41,7 +43,7 @@ public class MeMap {
         System.out.println(index);
 
         Set<Map.Entry<Cup,String>> set =  linkedHashMap.entrySet();
-        set.forEach(e -> System.out.println(e.getValue() + e.getKey().getColour()));
+//        set.forEach(e -> System.out.println(e.getValue() + e.getKey().getColour()));
 
         System.out.println("-------------");
         HashMap<Cup, String> hashMap = new HashMap<Cup, String>();
@@ -50,6 +52,8 @@ public class MeMap {
         hashMap.put(new Cup("黑色", 8), "3");
         hashMap.put(new Cup("黑色", 6), "4");
         hashMap.put(new Cup("蓝色", 10), "5");
+
+        Set<Map.Entry<Cup, String>> set1 = hashMap.entrySet();
 
         hashMap.put(null,null);
         Iterator<Map.Entry<Cup, String>> iterator = hashMap.entrySet().iterator();
