@@ -23,6 +23,5 @@ InputStream/OutputStream都是基于字节的，但是在编码过程中我们�
 >>InputStreamReader/OutputStreamReader：使用**适配器模式**，将字节流转换为字符流。
 
 
-# 2、Java-NIO
 
 
