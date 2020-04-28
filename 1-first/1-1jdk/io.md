@@ -1,5 +1,6 @@
-# IO原理简述
-IO详解[IO/NIO](../2-second/2-6IO&NIO/io.md)
+# Java-IO
+IO原理详解[IO/NIO](../2-second/2-6IO&NIO/io.md)
+IO原理详解[IO/NIO](./collection.md)
 &emsp;&emsp;    java-IO：数据的输入输出，因为数据的传输是连续的，抽象成流。
 >InputStream/OutputStream：java中流的核心，抽象了**二进制**的数据流处理。  
 >>FileInput/OutputStream：以文件为目的地，进行输入输出的二进制流。  
@@ -21,14 +22,6 @@ InputStream/OutputStream都是基于字节的，但是在编码过程中我们�
 >>StringReader/StringWriter：继承自Reader/Writer以内存为目的地进行读写。
 >>InputStreamReader/OutputStreamReader：使用**适配器模式**，将字节流转换为字符流。
 
-装饰器模式
-Component -> 组件  
-TartComponent implements Component->被装饰对象  
-DecoratorComponent implements Component ->装饰器对象也实现了组件，但是内部有一个Component类型的属性既（被装饰器对象），
-丰富了被装饰对象的功能。
 
-适配器模式
-转换器，原本不相干的两个组件可以协同一起工作；
-举例：
-目标接口字符流Reader与需要被适配的类InputStream原本是两个不相干的类，为了满足可以读字符功能，有了适配器者InputStreamReader。
-InputStreamReader的作用就是将字节输入流转换为能读取字符的字符输入流。其实最里面的适配器是InputStreamReade
+
+
