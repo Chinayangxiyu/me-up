@@ -1,6 +1,6 @@
-# Java-IO
-IO原理详解[IO/NIO](../2-second/2-6IO&NIO/io.md)
-IO原理详解[IO/NIO](./collection.md)
+# 1、Java-IO
+IO原理详解[IO/NIO](.../2-second/2-6IO&NIO/io.md)  
+IO涉及的涉及模式[IO装饰器、适配器模式](/2-second/2-4design_mode/结构性模式.md)
 &emsp;&emsp;    java-IO：数据的输入输出，因为数据的传输是连续的，抽象成流。
 >InputStream/OutputStream：java中流的核心，抽象了**二进制**的数据流处理。  
 >>FileInput/OutputStream：以文件为目的地，进行输入输出的二进制流。  
@@ -23,5 +23,6 @@ InputStream/OutputStream都是基于字节的，但是在编码过程中我们�
 >>InputStreamReader/OutputStreamReader：使用**适配器模式**，将字节流转换为字符流。
 
 
+# 2、Java-NIO
 
 
