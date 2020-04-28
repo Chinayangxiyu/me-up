@@ -1,6 +1,5 @@
 # Java-IO
-IO原理详解[IO/NIO](../2-second/2-6IO&NIO/io.md)
-IO原理详解[IO/NIO](./collection.md)
+IO原理详解[IO/NIO](/2-second/2-6IO&NIO/io.md)
 &emsp;&emsp;    java-IO：数据的输入输出，因为数据的传输是连续的，抽象成流。
 >InputStream/OutputStream：java中流的核心，抽象了**二进制**的数据流处理。  
 >>FileInput/OutputStream：以文件为目的地，进行输入输出的二进制流。  
