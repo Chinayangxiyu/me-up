@@ -133,6 +133,14 @@ peek:获取一个元素,可以改变流内部的元素,对流本身没有影响,
 对于String类型还有Collectors.join
 对于数值类型有max,sum,averaging,min等特殊操作.  
 **注意toConcurrentMap**等操作,返回线程安全类型的Map.
+```
+分组计数案例
+  saleCounts = positions.stream()
+                    // 职位的部门信息不能为空，职位不能属于需要排除的团队之中。
+                    .filter(p -> p.getDeptCode() != null && !excludeTeams.contains(p.getDeptCode()))
+                    // 分组并计数，此处分组的key并不是当前流中的元素而是映射的其它元素对象
+                    .collect(Collectors.groupingBy(p -> teamMapCity.get(p.getDeptCode()), Collectors.counting()));
+```
 
 ## 5、parallelStream(并行流处理)
 适合线程安全的情况下数据梳理,基于Fork/join框架实现.

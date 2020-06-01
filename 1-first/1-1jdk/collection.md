@@ -163,7 +163,7 @@ https://www.jianshu.com/p/8f4f58b4b8ab
 ## 1、ArrayDeque
 &emsp;&emsp;   基于数组实现的双端队列，头部和尾部都能添加、获取元素。
 ## 2、PriorityQueue
-&emsp;&emsp;   数组和Comparator实现的具有优先级排序的队列。
+&emsp;&emsp;   通过二叉小顶堆实现，可以用一棵完全二叉树表示，Comparator实现的具有优先级排序的队列。
         
         
 
