@@ -7,13 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="arithmetic-study" />
-        <module name="jdk-demo" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="8">
       <module name="arithmetic-study" target="1.8" />
-      <module name="demo" target="1.8" />
-      <module name="jdk-demo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
