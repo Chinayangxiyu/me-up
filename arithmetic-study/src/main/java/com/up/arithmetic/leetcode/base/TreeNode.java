@@ -15,7 +15,7 @@ public class TreeNode {
 
 
 
-    /*
+    /**
      * @description: 二叉树中根遍历，递归实现
      */
     public static List<Integer> convertToArray(TreeNode tree, List<Integer> list){

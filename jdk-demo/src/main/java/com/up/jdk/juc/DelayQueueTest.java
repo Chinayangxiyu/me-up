@@ -14,8 +14,8 @@ public class DelayQueueTest {
 
     public void method2(){
         DelayQueue<child> d1 = new DelayQueue();
-        d1.add()
-        d1.take();
+//        d1.add()
+//        d1.take();
     }
 }
 
