@@ -12,7 +12,7 @@ import java.util.Iterator;
 public class SerializableTest {
 
 
-    // Ã¶¾ÙÌØÐÔ£¬µ¥ÀýÄ£Ê½
+    // Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½
 
 
     public static void main(String[] args) {
@@ -23,21 +23,28 @@ public class SerializableTest {
 //            e.printStackTrace();
 //        }
 
+//
+//        User user = new User();
+//        user.setUserName(name);
+//        user.setPassword(password);
+//
+//        Class clazz = user.getClass();
+//        Field[] fields = clazz.getDeclaredFields();
 
-        User user = new User();
-        user.setUserName(name);
-        user.setPassword(password);
 
-        Class clazz = user.getClass();
-        Field[] fields = clazz.getDeclaredFields();
+        double d1 = 12d;
+        double d2 = 0.0;
 
-
+        System.out.println("--------");
+        System.out.println((int)d1/d2);
+        System.out.println((int)d1/0.00f);
+        System.out.println((byte)d1/0.00f);
 
     }
 
 
-    public static final String name="ÇëÎÊ¶ø¶ùÍ¯¶øËûµÄ½Ó¿ÚÄÚÖÃÉÏµº¿§·ÈÄá¿ËË¹¶Ó²»·Ö¿ª1°¡°¡ËÕµ¤Åµ·ò¿ÉÊÇ²»¸Ò¿ªÊ¼Ê²Ã´¶¼²»·ÅÊÖ";
-    public static final String password="ÇëÎÊ¶ø¶ùÍ¯¶øËûµÄ½Ó¿ÚÄÚÖÃÉÏµº¿§·ÈÄá¿ËË¹¶Ó²»·Ö¿ª1°¡°¡ËÕµ¤Åµ·ò¿ÉÊÇ²»¸Ò¿ªÊ¼Ê²Ã´¶¼²»·ÅÊÖ";
+    public static final String name="ï¿½ï¿½ï¿½Ê¶ï¿½ï¿½ï¿½Í¯ï¿½ï¿½ï¿½ï¿½ï¿½Ä½Ó¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¹ï¿½Ó²ï¿½ï¿½Ö¿ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½Åµï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½Ò¿ï¿½Ê¼Ê²Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+    public static final String password="ï¿½ï¿½ï¿½Ê¶ï¿½ï¿½ï¿½Í¯ï¿½ï¿½ï¿½ï¿½ï¿½Ä½Ó¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¹ï¿½Ó²ï¿½ï¿½Ö¿ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½Åµï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½Ò¿ï¿½Ê¼Ê²Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
     public static void writeByStream() throws Exception{
 
         User user = new User();
@@ -51,8 +58,8 @@ public class SerializableTest {
         byte[] testByte = os.toByteArray();
 
         String str = new String(testByte);
-        System.out.print("ObjectOutputStream ×Ö½Ú±àÂë³¤¶È£º" + testByte.length + "\n");
-        System.out.print("ObjectOutputStream string£º" + str);
+        System.out.print("ObjectOutputStream ï¿½Ö½Ú±ï¿½ï¿½ë³¤ï¿½È£ï¿½" + testByte.length + "\n");
+        System.out.print("ObjectOutputStream stringï¿½ï¿½" + str);
     }
 
 
@@ -76,7 +83,7 @@ public class SerializableTest {
 
         byteBuffer.flip();
         byte[] bytes = new byte[byteBuffer.remaining()];
-        System.out.print("ByteBuffer ×Ö½Ú±àÂë³¤¶È£º" + bytes.length+ "\n");
+        System.out.print("ByteBuffer ï¿½Ö½Ú±ï¿½ï¿½ë³¤ï¿½È£ï¿½" + bytes.length+ "\n");
 
     }
 
