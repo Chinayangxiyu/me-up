@@ -8,7 +8,7 @@ public class leetcode77 {
 
     public static void main(String[] args) {
         leetcode77 l = new leetcode77();
-        l.combine(5, 2);
+        l.combine(5, 3);
 
     }
 
