@@ -6,8 +6,14 @@ AspectJ：是支持任何类，更大，功能更全。
 
 # 1、事务失效原因分析
 [引用](https://www.jianshu.com/p/4120b89190d0)
-1、bean没有被Spring管理：因为事务是基于Spring AOP的，Spring AOP仅适用于Spring bean;
-2、方法不是public修饰：
+1、bean没有被Spring管理：  
+&emsp;&emsp;  原因分析：事务是基于Spring AOP的，Spring AOP仅适用于Spring bean;  
+2、方法不是public修饰：  
+&emsp;&emsp;  原因分析：事务是基于Spring AOP实现的，Spring AOP是基于JDK和CGLIB动态代理实现的  
+JDK动态代理是基于接口的，接口的方法修饰符肯定是public的。  
+CGLIB动态代理是通过继承目标类，重写方法，生成代理类。private方法不能被继承；final方法不能被重写；最终  
+在执行代理方法的时候，不一定在同一个包下面，所以修饰符也不能是default，更不会是protected。只能是public。
+
 3、自身调用：
 ```
 public class A{
