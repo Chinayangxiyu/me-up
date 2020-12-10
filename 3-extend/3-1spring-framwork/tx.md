@@ -1,3 +1,4 @@
+# base
 AspectJ是一个代码生成工具，在编译的时候添加切入点的字节码。
 Spring AOP是基于代理（jdk,CGLIB）的，CGLIB是字节码底层技术生成一个代理类（区别AspectJ，AspectJ是直接修改源class）；
 
@@ -31,6 +32,8 @@ public class A{
     
     // 同分析(1)，method3中调用的method4也不是增强代理类，所以事务失效。
     // 如果正常，method4是一个新事务，回滚操作不会影响method3；但是实际影响到了method3()所以失效。
+    // 如果使用的是默认的事务传播机制，那么此刻method4是否加事务都能生效，因为整个执行逻辑都包含在了
+    // method3声明的事务里面。
     @Transactional
     public void method3(){
         this.method4();

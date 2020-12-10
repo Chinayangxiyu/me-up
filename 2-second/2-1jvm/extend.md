@@ -1,7 +1,7 @@
 # 1、Introspector(内省)
 内省是通过反射实现的，相对于反射提供了更简单的api.
 内省操作只针对JavaBean，只有符合JavaBean规则的类的成员才可以采用内省API进行操作.
-Javabean规范；
+Javabeans规范；
 1、类映射public的；
 2、必须有一个空参构造器；
 3、属性应该是private的；
