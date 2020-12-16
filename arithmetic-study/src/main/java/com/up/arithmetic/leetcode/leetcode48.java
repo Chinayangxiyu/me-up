@@ -20,19 +20,28 @@ public class leetcode48 {
     // 怎么一次获取
     public static void rotate(int[][] matrix) {
 
-        int minIndex = 0;
-        int maxIndex =  matrix.length-1;
+        int i = 0;
+        int j =  matrix.length-2;
 
-        int tmp;
-        for(; minIndex < maxIndex; minIndex++, maxIndex--){
-            // 获取当前正方形第一行,最后一行 缓存
-                for(int i = minIndex,j = maxIndex; i < maxIndex && j> minIndex; i++,j--){
-                    tmp = matrix[minIndex][i];
-                    matrix[minIndex][i] = matrix[j][minIndex];
-                    matrix[j][minIndex] = matrix[maxIndex][j];
-                    matrix[maxIndex][j] = matrix[i][maxIndex];
-                    matrix[i][maxIndex] = tmp;
-                }
+        for(; i < j; i++,j--){
+
+//            int temp = matrix[i][matrix.length-1 - j];
+//            matrix[i][matrix.length-1 - j] = matrix[matrix.length-1 - j][i];
+//            matrix[matrix.length-1 - j][i] = matrix[j][matrix.length-1 - i];
+//            matrix[j][matrix.length-1 - i] = matrix[matrix.length-1-i][j];
+//            matrix[i][j] = temp;
+
+            int temp = matrix[0][0];
+            matrix[0][0] = matrix[matrix.length-1][0];
+
+            matrix[i][matrix.length-1 - j] = matrix[matrix.length-1 - j][i];
+            matrix[matrix.length-1 - j][i] = matrix[j][matrix.length-1 - i];
+            matrix[j][matrix.length-1 - i] = matrix[matrix.length-1-i][j];
+            matrix[i][j] = temp;
+
+
+
+
         }
     }
 }
