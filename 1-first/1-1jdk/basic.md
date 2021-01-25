@@ -1,9 +1,32 @@
 # 一、范型
 什么是范型：参数化类型，使用范型能够提供通用的算法和设计方案，增强了抽象能力。
-类型擦除：Java范型实现的方案是类型擦除，在编译的时候编译器会根据范型类型做校验；编译后的字节码为"裸类型（Raw type）"，并且会做
-对应的类型强转。
-Java范型的劣势：不支持原生类型的范型、需要做自动的类型转换（装箱、拆箱）导致性能不高；并且无法在运行时候获取具体的范型类型。
+类型擦除：Java范型实现的方案是类型擦除，在编译的时候编译器会根据范型类型做校验；编译后的字节码为"裸类型（Raw type）"，在  
+需要的地方做了类型强转。
+如下代码在编译后，范型擦除，checkcast会加上强转代码，将Object转为Sting。
+```
 
+  public static void main(String[] args) {
+
+        List<String> list = new ArrayList<>();
+        String s1 = list.get(0);
+  }
+    
+    // 编译后字节码
+      public static void main(java.lang.String[]);
+    Code:
+       0: new           #2                  // class java/util/ArrayList
+       3: dup
+       4: invokespecial #3                  // Method java/util/ArrayList."<init>":()V
+       7: astore_1
+       8: aload_1
+       9: iconst_0
+      10: invokeinterface #4,  2            // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+      15: checkcast     #5                  // class java/lang/String
+      18: astore_2
+      19: return
+```
+Java范型的劣势:不支持原生类型的范型、需要做自动的类型转换（装箱、拆箱）导致性能不高；并且无法在运行时候获取具体的范型类型。
+范型与反射:可以通过反射获取类或方法的参数化类型信息，类型擦除指的是方法编译后code属性中的字节码，在元数据还是保留了范型信息，所以可以使用反射获取。
 
 【拓展】:范型的实现有不同的方式，C#使用的"具现化范型"；对于C# List<int>和List<double>是不同的类型。Java使用类型擦除去
 实现范型是为了保证向后兼容，既1.5以前的代码也能在加入范型后正常运行。也正因为类型擦除导致了Java范型的劣势。
