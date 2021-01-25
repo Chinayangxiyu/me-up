@@ -10,8 +10,9 @@ package com.up.arithmetic.leetcode.base;
  */
 public class QuickSortUtil {
 
+    // [[2,3],[2,2],[3,3],[1,3],[5,7],[2,2],[4,6]]
     public static void main(String[] args) {
-        int[] array = new int[]{9,2,3,1,4,0,7};
+        int[] array = new int[]{12,7,14,9,10,11};
         quicksort(array);
 
         for(int i = 0; i< array.length; i++){
@@ -21,6 +22,9 @@ public class QuickSortUtil {
     }
 
 
+    /**
+     *
+     */
     public static void quicksort(int[] nums){
 
         quicksort(0, nums.length-1, nums);
@@ -35,13 +39,13 @@ public class QuickSortUtil {
 
         int i = left;
         int j = right;
-        cur = nums[i];
+
+        cur = nums[right];
         while(left < right){
             left = leftSort(left, right, nums);
             right = rightSort(left, right, nums);
         }
 
-        nums[i] = cur;
 
 
         quicksort(i, left-1, nums);
@@ -52,12 +56,11 @@ public class QuickSortUtil {
 
     private static int cur;
     private static int leftSort(int left, int right, int[] nums){
-        for(int i  = left; i <= right; i++){
+        for(int i  = left; i < right; i++){
             if (nums[i] > cur){
-                int temp = cur;
-                cur = nums[i];
+                int temp = nums[right];
+                nums[right] = nums[i];
                 nums[i] = temp;
-
                 return i;
             }
         }
@@ -66,12 +69,11 @@ public class QuickSortUtil {
     }
 
     private static int rightSort(int left, int right, int[] nums){
-        for(int i  = right; i >= left; i--){
+        for(int i  = right; i > left; i--){
             if (nums[i] < cur){
-                int temp = cur;
-                cur = nums[i];
+                int temp = nums[left];
+                nums[left] = nums[i];
                 nums[i] = temp;
-
                 return i;
             }
         }

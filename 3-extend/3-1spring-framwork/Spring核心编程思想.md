@@ -82,3 +82,6 @@ BeanFactoryPostProcessor£ºbeanFactory¹³×Ó£¬ÔÊĞí×Ô¶¨ÒåĞŞ¸ÄÓ¦ÓÃ³ÌĞòÉÏÏÂÎÄµÄbean¶¨Ò
 ÒÑ¾­¼ÓÔØ£¬µ«ÊÇbean»¹Î´ÊµÀı»°£¬È¥ĞŞ¸ÄBeanDefinitionµÄÊôĞÔÖµ¡£
 
 
+
+AutowireCapableBeanFactory:¾ßÓĞ×Ô¶¯×°ÅäÄÜÁ¦µÄBeanFactory
+SingletonBeanRegistry:×¢²áÒ»Ğ©¹«ÓÃµÄµ¥Àıbean£¬ÕâĞ©bean£»±ÈÈç

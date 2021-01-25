@@ -15,7 +15,7 @@ public class Solution0204 {
         Solution0204 s = new Solution0204();
 
 //        ListNode node = getNodes(new int[]{3,5,8,5,10,2,1});
-        ListNode node = getNodes(new int[]{1});
+        ListNode node = ListNode.getNodes(new int[]{1});
         ListNode result = s.partition(node, 0);
         while(result != null){
             System.out.println(result.val);
@@ -25,16 +25,7 @@ public class Solution0204 {
 
     }
 
-    public static ListNode getNodes(int[] array){
-        ListNode head = new ListNode(0);
-        ListNode temp = head;
-        for(int i = 0; i < array.length; i++){
-            temp.next = new ListNode(array[i]);
-            temp = temp.next;
-        }
 
-        return head.next;
-    }
 
 
     /**
