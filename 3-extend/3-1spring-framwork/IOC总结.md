@@ -1,5 +1,6 @@
-# 1、基础类
 
+
+# 1、SpringIOC相关类说明
 ## BeanFactory
 概述：Spring bean容器根接口；重要子接口如下
 HierarchicalBeanFactory：具有层级关系的容器。
@@ -10,7 +11,7 @@ ApplicationContext：在容器基础上扩展了国际化、资源管理、事件监听等功能
 
 
 ## BeanDefinition
-概述：bean定义的抽象，由BeanDefinitionReader
+概述：bean定义的抽象。
 RootBeanDefinition：合并后的bean定义
 GenericBeanDefinition：通用的bean定义
 ### 来源如下
@@ -67,18 +68,18 @@ DestructionAwareBeanPostProcessor：扩展了销毁前的回调处理
 # 2、bean的生命周期
 （1）解析、注册BeanDefinition；  
 （2）实例化前置操作：可以在实例化前返回bean，从而阻断默认的实例化。  
-（3）实例化 BeanWrapper.getWrappedInstance()  
+（3）实例化 BeanWrapper.getWrappedInstance()，**如果存在构造器注入，会在实例化时注入**  
 （4）实例化后置操作：提供在属性填充前修改属性值的机会。  
-（5）属性填充：自动注入，绑定需要注入的bean。  
+（5）属性填充：自动注入，绑定需要注入的bean，**setter注入和字段注入都在这里实现**。  
 （6）初始化前置处理：回调处理Aware接口ApplicationContextAware；PostConstruct初始化处理（基于JSR250初始化）。  
 （7）初始化：InitializingBean和InitMethod处理。  
-（8）初始化后置处理：目标bean已经初始化结束，操作AOP增强，返回代理bean；AbstractAutoProxyCreator。  
+（8）初始化后置处理：目标bean已经初始化结束，可以实现AOP增强，返回代理bean；AbstractAutoProxyCreator。  
 （9）销毁前置方法：@PreD （9）销毁前置方法：@PreDestroyestroy  
 （10）销毁：bean被销毁，比如resetBeanDefinition，重置BeanDefinition，提供扩展入口。
 
 
 # 3、bean创建流程
-概述：  
+概述：流程主要以单例bean、字段注入类型进行说明  
 bean创建的核心方法是AbstractAutowireCapableBeanFactory.doCreateBean()。  
 singletonObjects：一级缓存，缓存的初始化完成的beanName，bean。  
 earlySingletonObjects：二级缓存，缓存的早期引用beanName，bean（只有循环引用才会用到）。  
@@ -99,6 +100,7 @@ initializeBean():初始化方法。
 6、初始化
 
 ## 3-2 AOP增强bean的加载流程
+[AOP增强bean创建流程](./resources/AOP增强bean创建流程.png)
 
 1、在执行**初始化后置处理**的时候，会依次调用注册的bean的后置处理器的初始化后置方法"applyBeanPostProcessorsAfterInitialization()"；
 2、自动代理创建器会在bean初始化后进行处理，如果当前类需要代理，会创建代理bean替换原生的bean。AbstractAutoProxyCreator.postProcessAfterInitialization()
@@ -115,9 +117,4 @@ initializeBean():初始化方法。
 2、为何使用三级缓存：
 
 
-# 3
-向singletonFactories添加的时候，添加的是一个ObjectFactory，此时并未吧实际的bean实例添加到缓存；singletonFactories
-的目的只是为了占一个坑。
-allowEarlyReference:为true时才会向二级缓存添加元素
-1、没有循环依赖的时候不会使用缓存，直接返回的instanceWrapper创建的实例；
-2、第一级的缓存是因为未初始化完成不能引用。
+
