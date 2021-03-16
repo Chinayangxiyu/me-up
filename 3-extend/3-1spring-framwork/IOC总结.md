@@ -1,18 +1,18 @@
 
 
-# 1、SpringIOC相关类说明
+# 一、SpringIOC相关类说明
 ## BeanFactory
-概述：Spring bean容器根接口；重要子接口如下
-HierarchicalBeanFactory：具有层级关系的容器。
-ListableBeanFactory：以列表的结构管理所有的bean。
-AutowireCapableBeanFactory：自动装配功能的beanFactory。
-DefaultListableBeanFactory：Spring默认的beanFactory实现。
+概述：Spring bean容器根接口；重要子接口如下  
+HierarchicalBeanFactory：具有层级关系的容器。  
+ListableBeanFactory：以列表的结构管理所有的bean。  
+AutowireCapableBeanFactory：自动装配功能的beanFactory。  
+DefaultListableBeanFactory：Spring默认的beanFactory实现。  
 ApplicationContext：在容器基础上扩展了国际化、资源管理、事件监听等功能
 
 
 ## BeanDefinition
-概述：bean定义的抽象。
-RootBeanDefinition：合并后的bean定义
+概述：bean定义的抽象。  
+RootBeanDefinition：合并后的bean定义  
 GenericBeanDefinition：通用的bean定义
 ### 来源如下
 |                     | 基于资源文件             | 显示注册                        | 自动扫描                         | @Bean注册                                        |
@@ -24,35 +24,35 @@ GenericBeanDefinition：通用的bean定义
 
 
 ## ApplicationContext
-概述：Spring上下文，只读的中央接口；具有IOC、资源管理、国际化、事件监听等功能。
-ConfigurableApplicationContext：扩展了生命周期管理。
-GenericApplicationContext：通用实现，聚合了BeanDefinitionRegistry和DefaultListableBeanFactory
-AnnotationConfigApplicationContext：默认的非WEB环境的上下文
+概述：Spring上下文，只读的中央接口；具有IOC、资源管理、国际化、事件监听等功能。  
+ConfigurableApplicationContext：扩展了生命周期管理。  
+GenericApplicationContext：通用实现，聚合了BeanDefinitionRegistry和DefaultListableBeanFactory.  
+AnnotationConfigApplicationContext：默认的非WEB环境的上下文.
 
 
 ## BeanPostProcessor
-概述：定义了bean初始化前后的拦截处理。
-初始化前置处理：BeanPostProcessor.postProcessBeforeInitialization
+概述：定义了bean初始化前后的拦截处理。  
+初始化前置处理：BeanPostProcessor.postProcessBeforeInitialization  
 初始化后置处理：BeanPostProcessor.postProcessAfterInitialization
 
 
 
 ## InstantiationAwareBeanPostProcessor
-概述：BeanPostProcessor的子接口，扩展了bean实例化前后的操作和属性填充后的操作。
-实例化前置操作：InstantiationAwareBeanPostProcessor.postProcessBeforeInstantiation
-实例化后置操作：InstantiationAwareBeanPostProcessor.postProcessAfterInstantiation
+概述：BeanPostProcessor的子接口，扩展了bean实例化前后的操作和属性填充后的操作。  
+实例化前置操作：InstantiationAwareBeanPostProcessor.postProcessBeforeInstantiation  
+实例化后置操作：InstantiationAwareBeanPostProcessor.postProcessAfterInstantiation  
 属性应用前的处理：InstantiationAwareBeanPostProcessor.postProcessPropertyValues
 
 ## DestructionAwareBeanPostProcessor
-概述：BeanPostProcessor的子接口，添加了销毁前的回调操作。
+概述：BeanPostProcessor的子接口，添加了销毁前的回调操作。  
 销毁前置操作：DestructionAwareBeanPostProcessor.postProcessBeforeDestruction
 
 
 ## BeanFactoryPostProcessor
-概述：BeanFactory的后置处理器，允许修改bean工厂，BeanDefinition；此时bean还未初始化
+概述：BeanFactory的后置处理器，允许修改bean工厂，BeanDefinition；此时bean还未初始化  
 postProcessBeanFactory()方法：上下文初始化之后，修改内部的BeanFactory，所有的BeanDefinition都会被加载，可以修改。
-重要子接口：
-InstantiationAwareBeanPostProcessor：扩展了bean实例化前后的回调处理；
+### 重要子接口：
+InstantiationAwareBeanPostProcessor：扩展了bean实例化前后的回调处理；  
 DestructionAwareBeanPostProcessor：扩展了销毁前的回调处理
 
 ## BeanWrapper
@@ -65,7 +65,7 @@ DestructionAwareBeanPostProcessor：扩展了销毁前的回调处理
 概述：工厂类接口，实现类延迟加载。在Spring中常以匿名类出现，作为SpringBean三级缓存的元素。
 
 
-# 2、bean的生命周期
+# 二、bean的生命周期
 （1）解析、注册BeanDefinition；  
 （2）实例化前置操作：可以在实例化前返回bean，从而阻断默认的实例化。  
 （3）实例化 BeanWrapper.getWrappedInstance()，**如果存在构造器注入，会在实例化时注入**  
@@ -78,7 +78,7 @@ DestructionAwareBeanPostProcessor：扩展了销毁前的回调处理
 （10）销毁：bean被销毁，比如resetBeanDefinition，重置BeanDefinition，提供扩展入口。
 
 
-# 3、bean创建流程
+# 三、bean创建流程
 概述：流程主要以单例bean、字段注入类型进行说明  
 bean创建的核心方法是AbstractAutowireCapableBeanFactory.doCreateBean()。  
 singletonObjects：一级缓存，缓存的初始化完成的beanName，bean。  
@@ -113,8 +113,10 @@ initializeBean():初始化方法。
 说明2：出现循环依赖时，只有先开始创建的bean才会被添加到二级缓存中。**A-B循环依赖，先创建A，那么只有在填充B时，第二次去创建A的时候，才会将A从三级缓存取出来，存放到二级缓存。**
 
 ## 3-4 循环依赖补充
-1、使用ObjectFactory的好处：
-2、为何使用三级缓存：
+1、使用ObjectFactory的好处：延迟创建
+2、为何使用三级缓存：循环依赖本身只需要两层缓存处理，使用三层缓存是因为返回bean的时候，可能需要使用proxy增强，需要加一层缓存去替换首次创建的bean。
+
+
 
 
 

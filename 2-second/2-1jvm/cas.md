@@ -1,4 +1,0 @@
-CAS和volatile的区别和联系；
-CAS是本地方案，应该是从C语言实现的CAS操作；
-volatile和CAS并无直接联系。
-

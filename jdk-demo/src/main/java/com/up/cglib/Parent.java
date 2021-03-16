@@ -1,6 +1,5 @@
 package com.up.cglib;
 
-import net.sf.cglib.proxy.Enhancer;
 
 /**
  * TODO

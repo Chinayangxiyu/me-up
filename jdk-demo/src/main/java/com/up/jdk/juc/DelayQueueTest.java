@@ -14,7 +14,7 @@ public class DelayQueueTest {
 
     public void method2(){
         DelayQueue<child> d1 = new DelayQueue();
-//        d1.add()
+        d1.add(null);
 //        d1.take();
     }
 }
@@ -29,6 +29,7 @@ class child implements Delayed {
 
     @Override
     public int compareTo(Delayed o) {
+
         return 0;
     }
 }

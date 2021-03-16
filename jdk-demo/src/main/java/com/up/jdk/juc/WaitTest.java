@@ -15,6 +15,7 @@ public class WaitTest {
     public static void main(String[] args){
 
         Thread t1 = new Thread(new MeThread());
+
         t1.start();
         try{
             Thread.sleep(100);

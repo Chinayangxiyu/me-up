@@ -14,13 +14,19 @@ Javabeans规范；
 
 
 # 2、SPI（Service Provider Interface）
-是Java提供的一套用来被第三方实现或者扩展的接口，它可以用来启用框架扩展和替换组件。 SPI的作用就是为这些被扩展的API寻找服务实现 。  
-第三方实现后，程序在引用第三方jar包的时候，扫描META-INF/services/下的指定文件，然后由类加载器求加载实例。  
-核心是**ServiceLoader**，ServiceLoader是Java专门用于加载服务的；和ClassLoader不同，ClassLoader是加载class文件；ServiceLoader  
-是设置指定线程的"contextClassLoader"去加载指定（"META-INF/services/"）的服务实现。
-
-示例：SpringBoot的模块化扩展机制就是一种SPI思想的，当添加新的模块时，需要添加META-INF/spring.factories文件，文件中包含有需要被加载的
-类全限定类名称。
+## 概述：标准服务接口，Java提供了一套用来被第三方实现或者扩展的接口，SPI的作用是从扩展的第三方jar包中去寻找API接口的实现。
+## 原理：
+（1）第三方在实现jar包的时候，需要在路径"META-INF/services/"添加类全路径名称的文件（文件类型是实现类的全路径名）；  
+（2）程序在启动的时候，使用ServiceLoader去扫描依赖jar包的META-INF/services/文件夹；加载对应的class  
+（3）ServiceLoader加载工具内部使用"线程上下文类加载器"（contextClassLoader）去加载的class，contextClassLoader
+可以通过Thread.setContextClassLoader()设置，未设置会从父线程继承。
+## 说明：
+**SPI破坏了类加载的双亲委派**，第三方jar包理论上应该有应用程序加载器去加载的，SPI使用contextClassLoader实际可能是启动类
+加载器；但是为了实现Java标准服务不得不这么做。
+## 栗子
+JDBC标准服务使用了SPI机制;  
+SpringBoot的模块化扩展机制也是一种SPI思想的，添加新的模块时，在jar包META-INF路径添加spring.factories文件，文件中包含有  
+需要被加载的类全限定类名称。
 
 
 # 3、JDNI(java Naming and Directory Interface):

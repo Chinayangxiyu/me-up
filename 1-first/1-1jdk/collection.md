@@ -161,7 +161,7 @@ https://www.jianshu.com/p/8f4f58b4b8ab
 **&emsp;&emsp;    元素唯一**
 
 ## 1、HashSet
-&emsp;&emsp;    TreeMap本质上是一个HashMap，只是所有的value值均为一个static final Object对象，并不是null；这么做的原因之一是，
+&emsp;&emsp;    HashSet本质上是一个HashMap，只是所有的value值均为一个static final Object对象，并不是null；这么做的原因之一是，
             remove的是时候会返回value值，当删除的key不存在，删除失败的时候会返回null，如果我们本身存的value也是null，则无法判断是否  
             删除成功。
 &emsp;&emsp;      
