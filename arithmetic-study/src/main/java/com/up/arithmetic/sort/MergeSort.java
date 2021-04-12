@@ -6,7 +6,7 @@ import java.util.Arrays;
 /**
  * ¹é²¢ÅÅÐòÊ¾Àý
  */
-public class Sort {
+public class MergeSort {
 
 
     public static void main(String[] args) {
@@ -19,6 +19,7 @@ public class Sort {
         Arrays.stream(result).forEach(o -> {
             System.out.println(o);
         });
+
     }
 
     /**

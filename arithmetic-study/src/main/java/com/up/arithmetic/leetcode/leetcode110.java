@@ -2,6 +2,10 @@ package com.up.arithmetic.leetcode;
 
 import com.up.arithmetic.leetcode.base.TreeNode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
 /**
  * @author yxy
  * @date 2020/4/24 14:17
@@ -47,6 +51,9 @@ public class leetcode110 {
         if(Math.abs(leftHigth - rightHigth) > array[0]){
             array[0] = Math.abs(leftHigth - rightHigth);
         }
+
+
+
         return leftHigth > rightHigth ? leftHigth : rightHigth;
     }
 

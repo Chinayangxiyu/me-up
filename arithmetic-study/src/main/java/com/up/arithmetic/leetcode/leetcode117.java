@@ -44,7 +44,7 @@ public class leetcode117 {
             return null;
         }
 
-        Queue<Node> queue = new LinkedList();
+        LinkedList<Node> queue = new LinkedList();
         queue.offer(root);
 
         while (!queue.isEmpty()){

@@ -9,7 +9,7 @@ Java探针，JVM层面的AOP
 （5）Instrumentation提供在运行前（preMain）、运行时（agentmain）修改Class文件的入口；
 
 ## 原理
-agent使用attach机制实现的JVM间通信，使用[自己买计数](extend.md#4字节码技术)修改class文件。
+agent使用attach机制实现的JVM间通信，使用[字节码技术](extend.md#4字节码技术)修改class文件。
 
 [参考](https://www.cnblogs.com/rickiyang/p/11368932.html)
 

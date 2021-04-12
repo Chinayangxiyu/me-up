@@ -74,7 +74,7 @@ DestructionAwareBeanPostProcessor：扩展了销毁前的回调处理
 （6）初始化前置处理：回调处理Aware接口ApplicationContextAware；PostConstruct初始化处理（基于JSR250初始化）。  
 （7）初始化：InitializingBean和InitMethod处理。  
 （8）初始化后置处理：目标bean已经初始化结束，可以实现AOP增强，返回代理bean；AbstractAutoProxyCreator。  
-（9）销毁前置方法：@PreD （9）销毁前置方法：@PreDestroyestroy  
+（9）销毁前置方法：@PreDestroyestroy  
 （10）销毁：bean被销毁，比如resetBeanDefinition，重置BeanDefinition，提供扩展入口。
 
 

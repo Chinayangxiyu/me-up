@@ -43,19 +43,29 @@ mutexºÍcondition±£»¤ÁËÒ»¸ö½Ğ_counterµÄĞÅºÅÁ¿¡£µ÷ÓÃparkÊ±_counterÖÃÎª0£»µ÷ÓÃunpar
 »ñÈ¡µ½Ëø£¬µ«ÊÇĞÂÏß³Ì¸ü¿ì£»µÈÍ¬²½¶ÓÁĞµÄ½Úµã»½ĞÑºó¿ÉÄÜstate×ÊÔ´ÒÑ¾­±»ĞÂÏß³ÌÇÀµ½ÁË¡£»½ĞÑµÄ½ÚµãÃ»ÇÀµ½×ÊÔ´ÓÖ  
 »á»Ö¸´µ½×èÈû×´Ì¬¡£
 
+Ô­Àí£º¹«Æ½Ëø»ñÈ¡Ê±»áµ÷ÓÃhasQueuedPredecessors()·½·¨ÅĞ¶ÏÍ¬²½¶ÓÁĞÊÇ·ñÎª¿Õ£¬Èô²»Îª¿ÕÔò½«µ±Ç°ÈÎÎñ·â×°Ìí¼Ó  
+µ½¶ÓÁĞ£»Èç¹ûÍ¬²½¶ÓÁĞÎª¿ÕÔò³¢ÊÔCAS»ñÈ¡Ëø¡£¶ø·Ç¹«Æ½Ëø²»»áµ÷ÓÃhasQueuedPredecessors()·½·¨ÅĞ¶Ï£¬Ö±½Ó³¢ÊÔCAS  
+»ØÈ¥state×ÊÔ´¡£
+
 ·ÖÎö£º¹«Æ½ËøÒòÎªÑÏ¸ñ°´ÕÕFIFO¶ÓÁĞ´¦Àí£¬Ã¿´Î´¦Àí¶¼ĞèÒªÇĞ»»ÉÏÏÂÎÄ£»·Ç¹«Æ½Ëø¼õÉÙÇĞ»»´ÎÊı¡¢ÌáÉıÁËÍÌÍÂÁ¿£¬µ«ÊÇ¿ÉÄÜ  
 ²úÉúÏß³Ì¼¢¶öÎÊÌâ£¨Í¬²½¶ÓÁĞÖĞµÄÏß³Ì³¤ÆÚ»ñÈ¡²»µ½Ëø£©¡£  
 [Ê¾Àı](../../jdk-demo/src/main/java/com/up/jdk/juc/ReentrantLockDemo.java)
 
 
-## 2.5 ReentrantReadWriteLock
+## 2.5  ReentrantReadWriteLock
 
 ¸ÅÊö£º¿ÉÖØÈë¶ÁĞ´Ëø£¬Í¬Ò»Ïß³Ì¿ÉÒÔÍ¬Ê±»ñÈ¡¶Á¡¢Ğ´Ëø£»¶àÏß³Ì¼ä£¬¶Á-¶ÁËø¹²ÏíµÄ£¬¶Á-Ğ´¡¢Ğ´-Ğ´Ëø»¥³âµÄ¡£  
 ÖØÈëÔ­Àí£ºstateÊÇintÀàĞÍµÄÖµ£¬Ò»¹²ÓÉ32Î»£»¸ß16Î»±íÊ¾¶ÁËø£¬µÍ16Î»±íÊ¾Ğ´£»¸ßÎ»µÄÖµ±íÊ¾¶ÁËøÖØÈë´ÎÊı£¬µÍÎ»µÄÖµ  
-±íÊ¾Ğ´ËøÖØÈë´ÎÊı¡£
-¶ÁËø£º»ñÈ¡¶ÁËøÊ±Èç¹ûstateÊÇ·ñ±»ÆäËüÏß³Ì±ê¼ÇÎªĞ´Ëø£¬»òÕß¶ÁËøµÄ»ñÈ¡´ÎÊı³¬ÏŞ£¬ÈÎÎñ»á±»Ìí¼Óµ½¶ÓÁĞ£»·ñÔò³¢ÊÔCASĞŞ¸ÄstateÖµ¡£
-Ğ´Ëø£º»ñÈ¡Ğ´ËøÊ±Èç¹ûstate±»ÆäËüÏß³Ì±ê¼ÇÎªĞ´Ëø»ò¶ÁËø£¬µ±Ç°Ïß³ÌÌí¼Óµ½Í¬²½¶ÓÁĞÖĞ¡£
+±íÊ¾Ğ´ËøÖØÈë´ÎÊı¡£  
+¶ÁËø£º»ñÈ¡¶ÁËøÊ±Èç¹ûstateÊÇ·ñ±»ÆäËüÏß³Ì±ê¼ÇÎªĞ´Ëø£¬»òÕß¶ÁËøµÄ»ñÈ¡´ÎÊı³¬ÏŞ£¬ÈÎÎñ»á±»Ìí¼Óµ½¶ÓÁĞ£»·ñÔò³¢ÊÔCASĞŞ¸ÄstateÖµ¡£  
+Ğ´Ëø£º»ñÈ¡Ğ´ËøÊ±Èç¹ûstate±»ÆäËüÏß³Ì±ê¼ÇÎªĞ´Ëø»ò¶ÁËø£¬µ±Ç°Ïß³ÌÌí¼Óµ½Í¬²½¶ÓÁĞÖĞ¡£  
 [Ê¾Àı](../../jdk-demo/src/main/java/com/up/jdk/juc/ReentrantReadWriteLockDemo.java)
+
+### ¶ÁĞ´Ëø²¹³ä
+£¨1£©ReentrantReadWriteLockÖ§³Ö¹«Æ½¡¢·Ç¹«Æ½£»ÉèÖÃ¹«Æ½Ëøºó£¬»ñÈ¡ËøÊ±»áÅĞ¶ÏÍ¬²½¶ÓÁĞÊÇ·ñÎª¿Õ£¬  
+¹«Æ½µÄ¶ÁĞ´Ëø»á½µ¼¶ÎªÆÕÍ¨µÄReentrantLock£¬¼È²»ÄÜÊµÏÖ²¢·¢¶Á£»ÉèÖÃ·Ç¹«Æ½Ëøºó£¬Ğ´Ëø»ñÈ¡Ê±Ö±½Ó³¢ÊÔ  
+CAS£¬¶ÁËø»ñÈ¡Ê±ºò»áÅĞ¶Ï¶ÓÁĞÍ·½ÚµãÊÇ·ñÎª"¹²Ïí"Ä£Ê½¡£
+
 
 
 ## 2.6 AbstractQueuedSynchronizer
@@ -93,19 +103,21 @@ tryAcquireSharedNanos£º¹²ÏíÄ£Ê½»ñÈ¡£¬»ñÈ¡Ê§°Ü¼ÓÈë¶ÓÁĞ£¬Ö±µ½»ñÈ¡³É¹¦£¬»òÊ§°Ü£¬»òÏ
 release£ºÊÍ·Å¶ÀÕ¼×ÊÔ´£¬²¢»½ĞÑ¶ÓÁĞµÄºó¼Ì½Úµã£»  
 releaseShared£ºÊÍ·Å¹²Ïí×ÊÔ´£¬²¢»½ĞÑµ±Ç°½ÚµãµÄºó¼Ì½Úµã¡£
 
+#### AQS×Ü½á
+
 ×Ü½á£ºÔÚ²»Í¬µÄÊµÏÖÖĞstateÊôĞÔº¬Òå²»Í¬¡£
 
 # Èı¡¢tools
 
 ## 3.1 CountDownLatch
 
-¸ÅÊö£ºÔÊĞíÒ»¸ö»ò¶à¸öÏß³ÌµÈ´ı£¬Ö±µ½ÆäËüÏß³ÌÖ´ĞĞÍê¶ÔÓ¦µÄ²Ù×÷£»µÈ´ıÏß³Ì¿ÉÒÔÏìÓ¦ÖĞ¶Ï¡¢ÉèÖÃ³¬Ê±Ê±¼ä¡£  
+¸ÅÊö£ºÔÊĞíÒ»¸ö»ò¶à¸öÏß³ÌµÈ´ı£¬Ö±µ½ÆäËüÏß³ÌÖ´ĞĞÍê¶ÔÓ¦µÄ²Ù×÷£¨Ò»Æğ½áÊø£©£»µÈ´ıÏß³Ì¿ÉÒÔÏìÓ¦ÖĞ¶Ï¡¢ÉèÖÃ³¬Ê±Ê±¼ä¡£  
 Ô­Àí£ºstateÎªCountDownLatchµÄÈİÁ¿£¬Ã¿µ÷ÓÃÒ»´ÎcountDown()¼ÆÊı»á¼õ1£»Ö±µ½Îª0Ê±£¬»½ĞÑµÈ´ıµÄÏß³Ì¡£  
 [Ê¾Àı](../../jdk-demo/src/main/java/com/up/jdk/juc/CountDownLatchDemo.java)
 
 ## 3.2 CyclicBarrier
 
-¸ÅÊö£ºµÈµ½Ò»×éÏß³ÌÈ«²¿µÖ´ïÆÁÕÏÀ¹½Ø´¦Ê±£¬ÆÁÕÏÀ¹½Ø²Å»á·ÅĞĞ¡£  
+¸ÅÊö£ºµÈµ½Ò»×éÏß³ÌÈ«²¿µÖ´ïÆÁÕÏÀ¹½Ø´¦Ê±£¬ÆÁÕÏÀ¹½Ø²Å»á·ÅĞĞ£¨Ò»Æğ¿ªÊ¼£©¡£  
 Ô­Àí£ºstateÖ¸¶¨Ïß³Ì×éµÄÊıÁ¿£¬Ã¿Ò»¸öÏß³ÌµÖ´ïÆÁÕÏÊ±state¼õ1£»stateÎª0Ê±Ê¹ÓÃCondition.signalAll()  
 »½ĞÑËùÓĞµÄÏß³Ì¡£
 [Ê¾Àı](../../jdk-demo/src/main/java/com/up/jdk/juc/CyclicBarrierDemo.java)
@@ -147,6 +159,7 @@ PriorityBlockingQueue£ºÓÅÏÈ¼¶¶ÓÁĞPriorityQueue£¬ÎŞ½ç×èÈû¡£
 SynchronousQueue£ºÃ»ÓĞÈİÁ¿µÄ×èÈû¶ÓÁĞ£¬Ã¿´Î²åÈë¶¼±ØĞëµÈ´ıÁíÒ»¸öÏß³ÌµÄÉ¾³ı²Ù×÷£¬  
 LinkedTransferQueue£ºÁ´±í½á¹¹£¬ÎŞ½ç×èÈû£¬Ìá¹©transfer·½·¨£¬µ±Ïû·ÑÕßÃ»ÓĞÏû·ÑÔòÒ»Ö±×èÈû£¬Ö±µ½Ïû·ÑÕßÏû·Ñºó»½ĞÑ¡£
 
+
 ## 4.3  LinkedBlockingDeque£¨×èÈûË«¶Ë¶ÓÁĞ£©
 Á´±í½á¹¹µÄË«Ïò×èÈû¶ÓÁĞ¡£
 
@@ -187,6 +200,63 @@ ScheduledThreadPoolExecutor£ºÑÓ³Ù¡¢¶¨ÆÚÖ´ĞĞÈÎÎñµÄÏß³Ì³Ø£¬ÔÚThreadPoolExecutorµÄ»
 RejectedExecutionHandler£º¾Ü¾ø²ßÂÔµÄ½Ó¿Ú£¬Ä¬ÈÏÓĞËÄ¸ö£¬¿ÉÒÔ×Ô¶¨ÒåÊµÏÖ¡£
 Executors£º´´½¨Ïß³Ì³ØµÄ¹¤³§Àà¡£
 
+## 5.4 CompletableFuture
+jdk1.8¶ÔFutureµÄÀ©Õ¹£¬ÔöÇ¿ÁËÒì²½»Øµ÷¡¢Á÷Ê½´¦Àí¡¢¶à¸öFuture×éºÏ´¦ÀíµÄÄÜÁ¦£»Ê¹µÃJava¶àÈÎÎñµÄĞ­µ÷´¦Àí¸ü¼ÓÁ÷³©¡£  
+ÃèÊö£ºÒ»°ãÊ¹ÓÃCompletableFutureµÄ¾²Ì¬·½·¨»ñÈ¡ÊµÀı£¬
+
+### Ìá½»ÈÎÎñµÄ·½·¨£¨¾²Ì¬·½·¨£©
+CompletableFuture.runAsync(Runnable runnable):ÎŞ·µ»ØÖµÈÎÎñÌá½»£¬Ê¹ÓÃÄ¬ÈÏÏß³Ì³ØForkJoinPool¡£  
+CompletableFuture.runAsync(Runnable runnabl, Executor executor):ÎŞ·µ»ØÖµÈÎÎñÌá½»£¬Ê¹ÓÃ´«ÈëµÄÏß³Ì³ØÖ´ĞĞ¡£  
+CompletableFuture.supplyAsync(Supplier<U> supplier):ÓĞ·µ»ØÖµÈÎÎñÌá½»£¬Ê¹ÓÃÄ¬ÈÏÏß³Ì³ØForkJoinPool¡£  
+CompletableFuture.supplyAsync(Supplier<U> supplier, Executor executor):ÓĞ·µ»ØÖµÈÎÎñÌá½»£¬Ê¹ÓÃ´«ÈëµÄÏß³Ì³Ø¡£
+
+### ÊµÀı·½·¨¾ÙÀı£¨Òì²½»Øµ÷¡¢Á÷Ê½´¦Àí£©
+£¨1£©Òì²½»Øµ÷£ºÏà±ÈFutureµÄÒì²½»Øµ÷¿ª·¢¸ü¼òµ¥Ò×¶®
+```
+        CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
+            return " execute supply";
+        });
+        // ½«futureµÄ·µ»Ø½á¹û×÷Îª²ÎÊı´«ÈëthenApply½øĞĞÒì²½»Øµ÷´¦Àí¡£
+        future.thenApply((param)->{
+
+            try {
+                Thread.sleep(5000);
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+            System.out.println("thenApply" + param);
+            return "aa:" + param;
+        });
+        
+        System.out.println("main is ending");
+
+```
+£¨2£©Á÷Ê½´¦Àí:Èç¹ûÓÃFuture½øĞĞÁ÷Ê½´¦Àí£¬´úÂëÊµÏÖÌ«¸´ÔÓ
+```
+ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
+            return " execute supply";
+        });
+
+        future.thenApply((result) ->{
+            System.out.println(result + " thenApply");
+            return result + " thenApply";
+        })
+                .thenAccept((result) -> {
+                    System.out.println(result + " thenAccept");
+                })
+                .thenRun(() -> {
+                    System.out.println("thenRun");
+
+                });
+
+        System.out.println("pipeline ending");
+```
+
+
+(²Î¿¼1)\[https://blog.csdn.net/qq_31865983/article/details/106137777]  
+(²Î¿¼2)\[https://www.jianshu.com/p/558b090ae4bb?from=timeline]
+
+
 
 # ËÄ¡¢atomic
 
@@ -195,3 +265,22 @@ AtomicIntegerFieldUpdater£º»ùÓÚ·´Éä£¬Ìá¹©ÁËvolatileĞŞÊÎµÄIntegerÀàĞÍÊôĞÔµÄÔ­×Ó²Ù
 AtomicLongFieldUpdater£º»ùÓÚ·´Éä£¬Ìá¹©ÁËvolatileĞŞÊÎµÄLongÀàĞÍÊôĞÔµÄÔ­×Ó²Ù×÷£»
 AtomicReference£º¸üĞÂÒıÓÃµÄÔ­×Ó²Ù×÷£»
 AtomicReferenceFieldUpdater£º»ùÓÚ·´Éä£¬Ìá¹©ÁËvolatileĞŞÊÎµÄReferenceÀàĞÍÊôĞÔµÄÔ­×Ó²Ù×÷¡£
+
+
+# ÃæÊÔÎÊÌâ
+
+## 1¡¢×èÈû¶ÓÁĞÊµÏÖÔ­Àí
+£¨1£©×èÈûµÄ²åÈëºÍÒÆ³ıÎª×èÈû¶ÓÁĞ£¬ÊµÏÖÔ­ÀíÊÇÍ¨¹ıConditionÊµÏÖÏß³Ì¼äµÄÍ¨ĞÅÀ´ÊµÏÖµÄ¡£  
+£¨2£©¶øConditionÊµÏÖµÄÏß³Ì¼äÍ¨ĞÅÊÇ»ùÓÚLockSupport.park()¡¢unpark()ÊµÏÖµÄ£»  
+£¨3£©µ×²ãÍ¨¹ıµ÷ÓÃUnsafeµÄ±¾µØ·½·¨Íê³ÉÏß³ÌµÄµÈ´ıºÍ»½ĞÑ£¬Unsafe.park¶ÔÓ¦LinuxµÄÏµÍ³·½·¨  
+pthread_cond_wait£¬Unsafe.unpark()¶ÔÓ¦LinuxµÄÏµÍ³·½·¨pthread_cond_signal¡£
+
+## 2¡¢¶¨Ê±¡¢ÖÜÆÚÈÎÎñÏß³Ì³Ø(ScheduledThreadPoolExecutor)ÊµÏÖÔ­Àí
+£¨1£©¶¨Ê±ÈÎÎñÏß³Ì³ØµÄÈÎÎñ¶ÓÁĞÓÉDelayQueueÊµÏÖ£¬¶øDelayQueueÄÚ²¿Î¬»¤µÄÊÇÓÉDelayed  
+ÔªËØ¹¹³É³ÉµÄPriorityQueue£¨ÓÅÏÈ¼¶£©¶ÓÁĞ£¬PriorityQueue°´ÕÕDelayedÔªËØµÄÊ£Óà¹ıÆÚ  
+Ê±¼ä½øĞĞË³ĞòÅÅÁĞ¡£  
+£¨2£©ÒòÎªDelayQueueÊÇÑÓ³Ù¶ÓÁĞ£¬ËùÒÔScheduledThreadPoolExecutor´ÓDelayQueueÖĞ»ñÈ¡  
+ÈÎÎñÖ´ĞĞÊ±£¬Èç¹ûÈÎÎñµ½ÆÚÊ±¼äÎ´µ½£»Ôò»á¸ù¾İµ½ÆÚÊ±¼äºÍµ±Ç°Ê±¼ä¼ÆËã³öÒ»¸öµÈ´ıÊ±¼ä(nanosTimeout)£¬  
+µ±Ç°Ïß³ÌÈÎÎñ»á±»×èÈû£¬Ö±µ½µÈ´ıÊ±¼ä³¬Ê±¡£
+
+## 3¡¢
