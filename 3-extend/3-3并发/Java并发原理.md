@@ -158,3 +158,4 @@ LockSupport是调用来本地方法，底层使用Posix的mutex，condition来实现的阻塞唤醒。
 (6)、重量级锁：[synchronized](#22-synchronized的实现原理与应用)。
 
 markword：对象头的markword：默认存储hashCode、分代年龄、锁标记，运行时markWord存储的数据会根据锁的变化而变化。
+
